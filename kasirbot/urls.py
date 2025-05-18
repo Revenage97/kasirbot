@@ -1,26 +1,29 @@
+# kasirbot/urls.py
 from django.contrib import admin
 from django.urls import path, include
-from django.contrib.auth import views as auth_views
+from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
+    # Admin
     path('admin/', admin.site.urls),
 
-    # Root → login page
+    # Halaman root menampilkan LoginView
     path(
         '',
-        auth_views.LoginView.as_view(
-            template_name='registration/login.html'
-        ),
+        LoginView.as_view(template_name='registration/login.html'),
         name='login'
     ),
 
-    # Logout (via POST oleh form di base.html atau link)
+    # Logout via POST (dengan form di base.html)
     path(
         'logout/',
-        auth_views.LogoutView.as_view(),
+        LogoutView.as_view(),
         name='logout'
     ),
 
-    # Semua halaman dashboard Anda di-prefix /dashboard/
-    path('dashboard/', include('inventory.urls')),
+    # Setelah login, semua dashboard di bawah /dashboard/
+    path(
+        'dashboard/',
+        include('inventory.urls')
+    ),
 ]
