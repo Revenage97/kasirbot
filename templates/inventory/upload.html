@@ -1,0 +1,9 @@
+{% extends 'inventory/base.html' %}
+{% block title %}Upload Excel{% endblock %}
+{% block content %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.file }}
+    <button type="submit">Upload</button>
+</form>
+{% endblock %}

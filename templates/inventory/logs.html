@@ -1,0 +1,9 @@
+{% extends 'inventory/base.html' %}
+{% block title %}Logs{% endblock %}
+{% block content %}
+<ul>
+    {% for log in logs %}
+        <li>{{ log.timestamp }} - {{ log.product.name }} - {{ log.action }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

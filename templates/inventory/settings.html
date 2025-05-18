@@ -1,0 +1,9 @@
+{% extends 'inventory/base.html' %}
+{% block title %}Webhook Settings{% endblock %}
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.url }}
+    <button type="submit">Save</button>
+</form>
+{% endblock %}
