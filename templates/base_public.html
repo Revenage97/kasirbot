@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{% block title %}Kasirbot{% endblock %}</title>
-  <!-- Bootstrap CSS -->
   <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
     rel="stylesheet"
@@ -12,16 +11,13 @@
     crossorigin="anonymous"
   >
   <style>
-    body { background-color: #f8f9fa; margin:0; }
+    body {
+      background-color: #f8f9fa;
+    }
   </style>
 </head>
 <body>
   {% block content %}{% endblock %}
-
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-HoA0OmxX+LV/PS6uMqmmLUke+GvTZhsnabePz+Qfn4Qm9wdcWxaS5IjJp3qLDVf5"
-    crossorigin="anonymous"
-  ></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
