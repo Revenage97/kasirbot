@@ -4,47 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %}Kasirbot{% endblock %}</title>
-
   <!-- Bootstrap CSS -->
   <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
     rel="stylesheet"
-    integrity="sha384-ENjdO4Dr2bkBIFxQpeo5sRemV+0sA2eQ1zHw+k1QFUpLvjIDFfuKQ1PSmJ6e7MGa"
+    integrity="sha384-YS1ZCkh8Qf5XOwql6gqZM6R4lqJe5GSMG3L4Ab9nMwqVzJZo4R6s0H0XQ6e3y6dn"
     crossorigin="anonymous"
   >
-
-  <style>
-    body { background-color: #f8f9fa; }
-  </style>
+  <style> body { background-color: #f8f9fa; } </style>
 </head>
 <body>
-
-  <!-- Navbar -->
-  <nav class="navbar navbar-light bg-white shadow-sm">
+  <!-- Navbar minimal -->
+  <nav class="navbar navbar-light bg-light">
     <div class="container">
-      <a class="navbar-brand" href="{% url 'dashboard' %}">Kasirbot</a>
-      <div>
-        {% if user.is_authenticated %}
-          <form method="post" action="{% url 'logout' %}" class="d-inline">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-outline-secondary">Logout</button>
-          </form>
-        {% else %}
-          <a class="btn btn-primary" href="{% url 'login' %}">Login</a>
-        {% endif %}
-      </div>
+      <a class="navbar-brand" href="{% url 'login' %}">Kasirbot</a>
+      {% if user.is_authenticated %}
+        <form method="post" action="{% url 'logout' %}">
+          {% csrf_token %}
+          <button class="btn btn-outline-secondary btn-sm">Logout</button>
+        </form>
+      {% endif %}
     </div>
   </nav>
 
-  <!-- Main content -->
-  <main class="container my-5">
+  <!-- Content wrapper -->
+  <div class="container py-4">
     {% block content %}{% endblock %}
-  </main>
+  </div>
 
-  <!-- Optional Bootstrap JS -->
+  <!-- Bootstrap JS Bundle -->
   <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+4U5CCYlEzEv2y5q5IEYvK0F0sp3y"
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HoA0OmxX+LV/PS6uMqmmLUke+GvTZhsnabePz+Qfn4Qm9wdcWxaS5IjJp3qLDVf5"
     crossorigin="anonymous"
   ></script>
 </body>
