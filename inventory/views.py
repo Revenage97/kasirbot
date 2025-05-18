@@ -7,6 +7,7 @@ from .models import Product, StockLog, WebhookSetting
 from .forms import ExcelUploadForm, MinStockForm, WebhookForm
 import openpyxl, requests
 
+@login_required(login_url='login')
 def dashboard(request):
     products = Product.objects.all()
     return render(request, 'inventory/dashboard.html', {
