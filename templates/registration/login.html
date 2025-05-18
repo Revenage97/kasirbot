@@ -1,21 +1,19 @@
-{# templates/registration/login.html #}
 {% extends 'inventory/base.html' %}
 {% block title %}Login{% endblock %}
 
 {% block content %}
 <div class="d-flex justify-content-center align-items-center vh-100">
-  <div class="card shadow p-4" style="width: 400px;">
-    <h3 class="card-title mb-2 text-center">Dashboard Manajemen Stok</h3>
+  <div class="card shadow p-4" style="width: 380px;">
+    <h3 class="card-title mb-1 text-center">Dashboard Manajemen Stok</h3>
     <p class="text-center text-muted mb-4">Silakan login untuk melanjutkan</p>
 
     <form method="post">
       {% csrf_token %}
 
-      {# Error umum #}
       {% if form.non_field_errors %}
-        <div class="alert alert-danger">
-          {{ form.non_field_errors }}
-        </div>
+      <div class="alert alert-danger">
+        {{ form.non_field_errors }}
+      </div>
       {% endif %}
 
       <div class="mb-3">
@@ -24,8 +22,7 @@
                name="username"
                id="id_username"
                class="form-control"
-               required
-               autofocus>
+               required autofocus>
       </div>
 
       <div class="mb-3">
