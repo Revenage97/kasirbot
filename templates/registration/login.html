@@ -1,28 +1,41 @@
 {% extends 'base_public.html' %}
+
 {% block title %}Login · Kasirbot{% endblock %}
 
 {% block content %}
 <div class="d-flex justify-content-center align-items-center vh-100">
-  <div class="card shadow-lg rounded-2 p-4" style="max-width:400px; width:100%;">
-    <h2 class="h5 text-center mb-2">Dashboard Manajemen Stok</h2>
+  <div class="card shadow-lg rounded-2 p-4" style="max-width: 400px; width: 100%;">
+    <h1 class="h4 text-center mb-3">Dashboard Manajemen Stok</h1>
     <p class="text-center text-muted mb-4">Silakan login untuk melanjutkan</p>
 
     <form method="post" action="{% url 'login' %}">
       {% csrf_token %}
+
       {% if form.non_field_errors %}
-        <div class="alert alert-danger">{{ form.non_field_errors }}</div>
+      <div class="alert alert-danger">{{ form.non_field_errors }}</div>
       {% endif %}
 
       <div class="mb-3">
         <label for="id_username" class="form-label">Username</label>
-        <input type="text" name="username" id="id_username"
-               class="form-control" required autofocus>
+        <input
+          type="text"
+          name="username"
+          id="id_username"
+          class="form-control"
+          required
+          autofocus
+        >
       </div>
 
       <div class="mb-3">
         <label for="id_password" class="form-label">Password</label>
-        <input type="password" name="password" id="id_password"
-               class="form-control" required>
+        <input
+          type="password"
+          name="password"
+          id="id_password"
+          class="form-control"
+          required
+        >
       </div>
 
       <button type="submit" class="btn btn-primary w-100">Login</button>
